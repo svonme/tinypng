@@ -65,7 +65,6 @@ function writeconsume(key, oldpath) {
         if (state) {
             throw "Create consume.log Error";
         }
-        console.log("日志 ：" + result);
     });
 }
 
