@@ -25,6 +25,9 @@ function readKey() {
             }
         }
     }
+    for (var i = 0; i < keys.length; i++) {
+        map[keys[i]] || (map[keys[i]] = []);
+    }
 }
 function init(callback) {
     consume = filePathRoot + "/config/consume.log";
@@ -63,13 +66,13 @@ function writeconsume(key, oldpath) {
     }
     fs.appendFile(consume, result, readFiletype, function (state) {
         if (state) {
-            throw "Create consume.log Error";
+            throw "Append consume.log Error";
         }
     });
 }
 
 function getpaths(oldpath, cover) {
-    var imagespath = path.resolve(oldpath);
+    var imagespath = path.resolve(oldpath || "");
 
     var dada = [];
     var reg = /\.jpg|\.jpeg|\.png/i;
