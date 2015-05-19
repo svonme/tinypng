@@ -14,6 +14,7 @@ var download = function ($PATH, $URL) {
 
     var exec = child_process.exec;
     var cmd = 'wget -e robots=off -w 1 -xq -np -nH -pk -m -t 1 -P ' + $PATH + ' ' + $URL + '';
+    console.log(cmd);
     var free = exec(cmd, function (error, result) {
         if (error) {
             console.log(error);
